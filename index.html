@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="styles.css">
+<form >
+    <h2>Registration Form</h2>
+
+    <label for="name">Name</label>
+    <input required type="text" id="name" name="name">
+ 
+    <label for="email">Email</label>
+    <input required type="email" id="email" name="email">
+ 
+    <label for="password">Password</label>
+    <input required type="password" id="password" name="password">
+ 
+    <label for="dob">Date of Birth</label>
+    <input required type="date" id="dob" name="dob">
+    
+    <div class="checkbox-group">
+        <input  required type="checkbox" id="acceptTerms" name="acceptTerms">
+        <label for="acceptTerms">Accept Terms & Conditions</label>
+    </div>
+    
+ 
+    <button type="submit">Submit</button>
+ </form>
+
+
+ <script>
+    const email = document.getElementById('email');
+    email.addEventListener('input', () => validation(email));
+
+    const validation = (element) => {
+        if (element.validity.typeMismatch) {
+            element.setCustomValidity("Email is not in right format");
+            element.reportValidity();
+        } else {
+            element.setCustomValidity();
+        }
+    }
+ </script>
